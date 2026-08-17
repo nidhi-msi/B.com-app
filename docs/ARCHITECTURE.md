@@ -102,7 +102,11 @@ The IGNOU B.Com Learning App is a client-side Single Page Application (SPA) buil
 ]
 ```
 
-### LocalStorage Schema (`ignou_bcom_progress`)
+### LocalStorage Schemas
+- `ignou_bcom_progress`: User quiz & topic progress object.
+- `ignou_bcom_theme`: Active palette (`falcon` | `toast` | `asparagus` | `indigo`).
+- `ignou_bcom_mode`: Active mode (`dark` | `light`).
+
 ```json
 {
   "quizCompletedCount": 12,
@@ -115,7 +119,8 @@ The IGNOU B.Com Learning App is a client-side Single Page Application (SPA) buil
 
 ---
 
-## 4. Performance & Styling Tokens
-- **Design Tokens**: Standardized Tailwind slate/indigo/emerald/amber color scheme.
-- **Glassmorphism Utilities**: Custom CSS classes (`glass-panel`, `glass-card`, `gradient-text`) with backdrop blur filters for a premium dark mode feel.
-- **Bundle Size Optimization**: Asset chunking via Vite resulting in a light production JS payload (~250 KB).
+## 4. Theme Engine & Performance Tokens
+- **Theme Design System**: 4 distinct color scales (`falcon`, `toast`, `asparagus`, `indigo`) configured in `tailwind.config.js`.
+- **Dynamic CSS Variables**: Runtime Custom Properties (`--bg-app`, `--bg-nav`, `--bg-card`, `--bg-input`, `--border-color`, `--text-main`, `--text-muted`, `--primary-500`) allowing instant switching between themes and modes.
+- **High-Contrast Glassmorphism Utilities**: Responsive backdrop blur filters (`glass-panel`, `glass-card`, `gradient-text`) tuned for maximum legibility in both light and dark modes.
+- **Bundle Size Optimization**: Asset chunking via Vite resulting in a light production JS payload (~260 KB).

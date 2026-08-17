@@ -6,6 +6,10 @@
 
 ## 🚀 Key Features
 
+- 🎨 **Multi-Palette Theme Engine & Light/Dark Mode Switcher**
+  - Switch between **Falcon 🌸** (Dusty Mauve), **Toast 🍞** (Warm Terracotta), **Asparagus 🌿** (Sage Green), and **Indigo 🌌** (Classic).
+  - Instant Light/Dark mode toggle button with automatic `localStorage` persistence.
+  - High-contrast typography tuned for optimal readability across all device screens.
 - 📚 **Semester-Wise IGNOU Syllabus (Sem 1 to Sem 6)**
   - Pre-loaded with authentic course codes: `BCOC-131`, `BCOC-132`, `BCOC-133`, `BCOC-134`, `BCOC-136`, `BCOC-137`, `BCOC-138`, `BCOE-141`, `BCOE-142`.
 - 💡 **Bite-Sized Chapter Notes & Memory Mnemonics**

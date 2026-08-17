@@ -14,6 +14,30 @@ export default function App() {
   const [selectedSubject, setSelectedSubject] = useState('BCOC-131');
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Theme & Mode State Persistence (falcon | toast | asparagus | indigo)
+  const [currentTheme, setCurrentTheme] = useState(() => {
+    try {
+      return localStorage.getItem('ignou_bcom_theme') || 'falcon';
+    } catch(e) {
+      return 'falcon';
+    }
+  });
+
+  const [colorMode, setColorMode] = useState(() => {
+    try {
+      return localStorage.getItem('ignou_bcom_mode') || 'dark';
+    } catch(e) {
+      return 'dark';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('ignou_bcom_theme', currentTheme);
+      localStorage.setItem('ignou_bcom_mode', colorMode);
+    } catch(e) {}
+  }, [currentTheme, colorMode]);
+
   // User Progress Persistence
   const [userProgress, setUserProgress] = useState(() => {
     try {
@@ -70,7 +94,7 @@ export default function App() {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
+    <div className={`theme-${currentTheme} ${colorMode} min-h-screen flex flex-col font-sans transition-colors duration-300`} style={{ backgroundColor: 'var(--bg-app)', color: 'var(--text-main)' }}>
       
       {/* Top Navigation */}
       <Navbar 
@@ -79,6 +103,10 @@ export default function App() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         userProgress={userProgress}
+        currentTheme={currentTheme}
+        setCurrentTheme={setCurrentTheme}
+        colorMode={colorMode}
+        setColorMode={setColorMode}
       />
 
       {/* Main Workspace Layout */}

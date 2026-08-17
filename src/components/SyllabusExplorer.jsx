@@ -24,30 +24,36 @@ export default function SyllabusExplorer({ selectedSem, selectedSubject, setSele
     <div className="space-y-6 animate-fadeIn">
       
       {/* Subject Header Banner */}
-      <div className="p-6 rounded-3xl bg-slate-900 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div 
+        className="p-6 rounded-3xl border flex flex-col md:flex-row md:items-center justify-between gap-4 transition-colors duration-300 shadow-lg"
+        style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
+      >
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <span className="px-2.5 py-0.5 rounded bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 font-mono font-bold text-xs">
+            <span 
+              className="px-2.5 py-0.5 rounded font-mono font-bold text-xs border"
+              style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)', borderColor: 'var(--border-color)' }}
+            >
               {activeSubject.code}
             </span>
-            <span className="px-2.5 py-0.5 rounded bg-purple-500/10 border border-purple-500/30 text-purple-300 font-semibold text-xs">
+            <span className="px-2.5 py-0.5 rounded font-semibold text-xs border" style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}>
               {activeSubject.category}
             </span>
-            <span className="text-xs text-slate-400">{activeSubject.credits} Credits</span>
+            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{activeSubject.credits} Credits</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl font-extrabold text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold" style={{ color: 'var(--text-main)' }}>
             {activeSubject.title}
           </h1>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-3xl leading-relaxed">
+          <p className="text-xs sm:text-sm mt-1 max-w-3xl leading-relaxed" style={{ color: 'var(--text-muted)' }}>
             {activeSubject.description}
           </p>
         </div>
 
         <div className="flex items-center gap-3 shrink-0">
           <div className="text-right">
-            <p className="text-[10px] uppercase font-bold text-slate-400">Chapter Units</p>
-            <p className="text-lg font-bold text-white font-serif">{activeSubject.chapters.length} Units</p>
+            <p className="text-[10px] uppercase font-bold" style={{ color: 'var(--text-muted)' }}>Chapter Units</p>
+            <p className="text-lg font-bold font-serif" style={{ color: 'var(--text-main)' }}>{activeSubject.chapters.length} Units</p>
           </div>
         </div>
       </div>
@@ -57,15 +63,15 @@ export default function SyllabusExplorer({ selectedSem, selectedSubject, setSele
         
         {/* Left Column: Chapters & Topics Tree */}
         <div className="lg:col-span-4 space-y-4">
-          <div className="p-4 rounded-2xl bg-slate-900/60 border border-slate-800">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-indigo-400" />
+          <div className="p-4 rounded-2xl border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}>
+            <h3 className="text-xs font-bold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: 'var(--text-muted)' }}>
+              <Layers className="w-3.5 h-3.5" style={{ color: 'var(--text-accent)' }} />
               Syllabus Units & Topics
             </h3>
 
             <div className="space-y-3">
               {activeSubject.chapters.map((ch) => (
-                <div key={ch.id} className="rounded-xl border border-slate-800/80 bg-slate-950/50 overflow-hidden">
+                <div key={ch.id} className="rounded-xl border overflow-hidden" style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-color)' }}>
                   
                   {/* Chapter Title */}
                   <div 
@@ -73,24 +79,28 @@ export default function SyllabusExplorer({ selectedSem, selectedSubject, setSele
                       setActiveChapterId(ch.id);
                       if (ch.topics[0]) setActiveTopicId(ch.topics[0].id);
                     }}
-                    className={`p-3 cursor-pointer flex items-center justify-between text-xs font-bold transition-colors ${
-                      activeChapterId === ch.id 
-                        ? 'bg-indigo-950/80 text-indigo-200 border-b border-indigo-500/20' 
-                        : 'text-slate-300 hover:bg-slate-900'
-                    }`}
+                    className="p-3 cursor-pointer flex items-center justify-between text-xs font-bold transition-colors border-b"
+                    style={{ 
+                      backgroundColor: activeChapterId === ch.id ? 'var(--primary-light)' : 'transparent',
+                      color: 'var(--text-main)',
+                      borderColor: 'var(--border-color)'
+                    }}
                   >
                     <div className="flex items-center gap-2">
-                      <span className="w-5 h-5 rounded bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-mono text-[10px]">
+                      <span 
+                        className="w-5 h-5 rounded flex items-center justify-center font-mono text-[10px] border"
+                        style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)', borderColor: 'var(--border-color)' }}
+                      >
                         U{ch.number}
                       </span>
                       <span className="line-clamp-1">{ch.title}</span>
                     </div>
-                    <span className="text-[10px] text-slate-500 font-mono">{ch.topics.length} topics</span>
+                    <span className="text-[10px] font-mono" style={{ color: 'var(--text-muted)' }}>{ch.topics.length} topics</span>
                   </div>
 
                   {/* Topics List under active chapter */}
                   {activeChapterId === ch.id && (
-                    <div className="p-2 space-y-1 bg-slate-950/80">
+                    <div className="p-2 space-y-1" style={{ backgroundColor: 'var(--bg-card)' }}>
                       {ch.topics.map((t) => {
                         const isTopicSelected = activeTopicId === t.id;
                         return (
@@ -100,14 +110,15 @@ export default function SyllabusExplorer({ selectedSem, selectedSubject, setSele
                               setActiveTopicId(t.id);
                               setViewMode('notes');
                             }}
-                            className={`w-full text-left p-2 rounded-lg text-xs font-medium transition-all flex items-center justify-between ${
-                              isTopicSelected
-                                ? 'bg-indigo-600 text-white font-bold shadow-md shadow-indigo-600/20'
-                                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
-                            }`}
+                            className="w-full text-left p-2 rounded-lg text-xs font-medium transition-all flex items-center justify-between border"
+                            style={{
+                              backgroundColor: isTopicSelected ? 'var(--primary-500)' : 'transparent',
+                              color: isTopicSelected ? '#ffffff' : 'var(--text-main)',
+                              borderColor: isTopicSelected ? 'var(--primary-600)' : 'transparent'
+                            }}
                           >
                             <span className="line-clamp-1">{t.title}</span>
-                            <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${isTopicSelected ? 'text-white' : 'text-slate-600'}`} />
+                            <ChevronRight className="w-3.5 h-3.5 shrink-0" style={{ color: isTopicSelected ? '#ffffff' : 'var(--text-muted)' }} />
                           </button>
                         );
                       })}
@@ -124,15 +135,16 @@ export default function SyllabusExplorer({ selectedSem, selectedSubject, setSele
         <div className="lg:col-span-8 space-y-4">
           
           {/* Content Mode Switcher Bar */}
-          <div className="flex items-center justify-between p-2 rounded-2xl bg-slate-900 border border-slate-800">
+          <div className="flex items-center justify-between p-2 rounded-2xl border" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}>
             <div className="flex items-center gap-1">
               <button
                 onClick={() => setViewMode('notes')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  viewMode === 'notes'
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/30'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
-                }`}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all border"
+                style={{
+                  backgroundColor: viewMode === 'notes' ? 'var(--primary-500)' : 'transparent',
+                  color: viewMode === 'notes' ? '#ffffff' : 'var(--text-muted)',
+                  borderColor: viewMode === 'notes' ? 'var(--primary-600)' : 'transparent'
+                }}
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Concept Notes</span>
@@ -140,11 +152,12 @@ export default function SyllabusExplorer({ selectedSem, selectedSubject, setSele
 
               <button
                 onClick={() => setViewMode('quiz')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  viewMode === 'quiz'
-                    ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
-                }`}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all border"
+                style={{
+                  backgroundColor: viewMode === 'quiz' ? 'var(--primary-500)' : 'transparent',
+                  color: viewMode === 'quiz' ? '#ffffff' : 'var(--text-muted)',
+                  borderColor: viewMode === 'quiz' ? 'var(--primary-600)' : 'transparent'
+                }}
               >
                 <HelpCircle className="w-3.5 h-3.5" />
                 <span>Topic Quiz ({activeTopic?.quiz?.length || 0})</span>
@@ -152,11 +165,12 @@ export default function SyllabusExplorer({ selectedSem, selectedSubject, setSele
 
               <button
                 onClick={() => setViewMode('pyq')}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all ${
-                  viewMode === 'pyq'
-                    ? 'bg-purple-600 text-white shadow-md shadow-purple-600/30'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
-                }`}
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold transition-all border"
+                style={{
+                  backgroundColor: viewMode === 'pyq' ? 'var(--primary-500)' : 'transparent',
+                  color: viewMode === 'pyq' ? '#ffffff' : 'var(--text-muted)',
+                  borderColor: viewMode === 'pyq' ? 'var(--primary-600)' : 'transparent'
+                }}
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Topic PYQs ({activeTopic?.pyqs?.length || 0})</span>
