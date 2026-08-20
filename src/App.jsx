@@ -111,7 +111,7 @@ export default function App() {
       />
 
       {/* Main Content Workspace Layout */}
-      <div className="flex-1 max-w-7xl w-full mx-auto pb-24 md:pb-12 px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
+      <div className="flex-1 max-w-7xl w-full mx-auto pb-safe md:pb-12 px-3 sm:px-6 lg:px-8 pt-3 sm:pt-6">
         
         <main className="min-w-0">
           

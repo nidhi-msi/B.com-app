@@ -9,13 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Multi-Tab Layout Architecture**: Separated monolithic view into 5 dedicated primary tabs (`Dashboard`, `Syllabus`, `PYQs`, `Exam Master`, `Progress`).
-- **Mobile Sticky Bottom Tab Bar (`MobileTabBar.jsx`)**: Added fixed bottom navigation bar with icons and active indicators for mobile/tablet screens.
+- **Mobile Sticky Bottom Tab Bar (`MobileTabBar.jsx`)**: Added fixed bottom navigation bar with icons and active indicators for mobile/tablet screens with safe area inset support.
 - **Dedicated Progress & Analytics Tracker (`ProgressTracker.jsx`)**: Added real-time degree completion percentage, average quiz accuracy calculation, and semester-wise mastery checklists.
 - **Semester Tabs in Syllabus Explorer**: Integrated horizontal Semester (1 to 6) tabs and subject selection chips in `SyllabusExplorer.jsx`.
-- **Marks Filter Tabs in PYQ Bank**: Added quick weightage tabs (`All Questions`, `5 Marks (Short)`, `10 Marks (Medium)`, `20 Marks (Essay)`) in `PYQBank.jsx`.
-- **Structured Sub-Tabs in Exam Master**: Divided long single-page answer guide into 4 dedicated sub-tabs (`Word & Time Matrix`, `4-Block Blueprint`, `Solved Model Answers`, `Exam Day Checklist`).
+- **Mobile Unit Quick Drawer**: Added collapsible unit/topic selector for smartphones in `SyllabusExplorer.jsx` so users can instantly read chapter notes without long scrolling.
+- **Expandable Mobile Search Bar**: Added compact search toggle in `Navbar.jsx` for mobile viewports preventing header icon compression.
+- **Marks Filter Tabs in PYQ Bank**: Added 2x2 responsive weightage tabs (`All Questions`, `5 Marks (Short)`, `10 Marks (Medium)`, `20 Marks (Essay)`) in `PYQBank.jsx`.
+- **Structured Sub-Tabs in Exam Master**: Divided long single-page answer guide into 4 dedicated sub-tabs (`Word & Time Matrix`, `4-Block Blueprint`, `Solved Model Answers`, `Exam Day Checklist`) with responsive 2x2 layout on mobile.
 
 ### Changed
+- **Multi-Device Responsive Overhaul**: Optimized typography, touch padding (min 44px), card layouts, safe-area padding (`.pb-safe`), and overflow handling across all screen sizes (320px phones to 4K monitors).
 - **Removed Cramped Global Sidebar**: Allowed Dashboard, PYQ Bank, Exam Master, and Progress Tracker to render in full-width, clean layouts.
 - **Enhanced Navbar Tab Navigation**: Added responsive tab links with active pill states and quiz badges on tablet/desktop screens.
 

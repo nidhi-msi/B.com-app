@@ -253,3 +253,23 @@
   animation: pulseGlow 3s infinite ease-in-out;
 }
 
+/* Hide scrollbar for clean horizontal mobile tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area inset for modern mobile screens */
+.pb-safe {
+  padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* Touch optimization */
+.touch-pan {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+}
+

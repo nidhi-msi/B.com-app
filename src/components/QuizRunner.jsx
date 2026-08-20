@@ -12,11 +12,11 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
   if (!quizList || quizList.length === 0) {
     return (
       <div 
-        className="p-8 rounded-3xl border text-center space-y-3"
+        className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl border text-center space-y-3"
         style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
       >
-        <HelpCircle className="w-10 h-10 mx-auto" style={{ color: 'var(--text-muted)' }} />
-        <h3 className="text-lg font-bold" style={{ color: 'var(--text-main)' }}>No Quiz Questions Available</h3>
+        <HelpCircle className="w-8 h-8 sm:w-10 sm:h-10 mx-auto" style={{ color: 'var(--text-muted)' }} />
+        <h3 className="text-base sm:text-lg font-bold" style={{ color: 'var(--text-main)' }}>No Quiz Questions Available</h3>
         <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Questions for this topic are being updated according to latest IGNOU exams.</p>
       </div>
     );
@@ -46,8 +46,8 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
       }
       try {
         confetti({
-          particleCount: 80,
-          spread: 70,
+          particleCount: 50,
+          spread: 60,
           origin: { y: 0.6 }
         });
       } catch(e) {}
@@ -69,30 +69,30 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
 
     return (
       <div 
-        className="p-8 rounded-3xl border text-center space-y-6 animate-fadeIn"
+        className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl border text-center space-y-5 sm:space-y-6 animate-fadeIn"
         style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
       >
-        <div className="w-20 h-20 mx-auto rounded-full p-0.5 shadow-xl" style={{ background: 'linear-gradient(135deg, var(--primary-500), var(--gradient-end))' }}>
+        <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full p-0.5 shadow-xl" style={{ background: 'linear-gradient(135deg, var(--primary-500), var(--gradient-end))' }}>
           <div className="w-full h-full rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--bg-app)' }}>
-            <Award className="w-10 h-10 text-amber-500" />
+            <Award className="w-8 h-8 sm:w-10 sm:h-10 text-amber-500" />
           </div>
         </div>
 
         <div>
           <span 
-            className="text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full border"
+            className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full border"
             style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)', borderColor: 'var(--border-color)' }}
           >
             Quiz Completed!
           </span>
-          <h2 className="text-3xl font-extrabold mt-3" style={{ color: 'var(--text-main)' }}>
+          <h2 className="text-2xl sm:text-3xl font-extrabold mt-3" style={{ color: 'var(--text-main)' }}>
             Score: {finalScore} / {total} ({percentage}%)
           </h2>
-          <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Topic: {topicTitle}</p>
+          <p className="text-xs mt-1 truncate max-w-sm mx-auto" style={{ color: 'var(--text-muted)' }}>Topic: {topicTitle}</p>
         </div>
 
         <div 
-          className="p-4 rounded-2xl max-w-md mx-auto border text-xs"
+          className="p-3.5 sm:p-4 rounded-2xl max-w-md mx-auto border text-xs leading-relaxed"
           style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-color)', color: 'var(--text-main)' }}
         >
           {percentage >= 80 ? (
@@ -104,10 +104,10 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
           )}
         </div>
 
-        <div className="flex items-center justify-center gap-3">
+        <div className="flex items-center justify-center">
           <button
             onClick={handleRestart}
-            className="px-6 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-md text-white"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md text-white active:scale-95"
             style={{ backgroundColor: 'var(--primary-500)' }}
           >
             <RotateCcw className="w-4 h-4" />
@@ -120,39 +120,39 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
 
   return (
     <div 
-      className="space-y-6 border p-6 sm:p-8 rounded-3xl animate-fadeIn transition-colors duration-300 shadow-lg"
+      className="space-y-4 sm:space-y-6 border p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl animate-fadeIn transition-colors duration-300 shadow-md overflow-hidden"
       style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
     >
       
       {/* Quiz Progress & Question Header */}
-      <div className="flex items-center justify-between border-b pb-4" style={{ borderColor: 'var(--border-color)' }}>
-        <div>
+      <div className="flex items-center justify-between border-b pb-3 sm:pb-4 gap-2" style={{ borderColor: 'var(--border-color)' }}>
+        <div className="truncate pr-2">
           <span 
-            className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg border"
+            className="text-[10px] sm:text-xs font-mono font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-lg border"
             style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)', borderColor: 'var(--border-color)' }}
           >
-            Question {currentIndex + 1} of {quizList.length}
+            Q {currentIndex + 1} of {quizList.length}
           </span>
-          <p className="text-xs mt-1" style={{ color: 'var(--text-muted)' }}>Topic: {topicTitle}</p>
+          <p className="text-[11px] sm:text-xs mt-1 truncate" style={{ color: 'var(--text-muted)' }}>{topicTitle}</p>
         </div>
 
-        <div className="text-right">
-          <span className="text-xs font-mono font-bold" style={{ color: 'var(--text-main)' }}>Score: {score}</span>
+        <div className="text-right shrink-0">
+          <span className="text-xs font-mono font-bold" style={{ color: 'var(--text-accent)' }}>Score: {score}</span>
         </div>
       </div>
 
       {/* Question Text */}
       <div 
-        className="p-4 sm:p-5 rounded-2xl border"
+        className="p-3.5 sm:p-5 rounded-2xl border"
         style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-color)' }}
       >
-        <h3 className="text-base sm:text-lg font-bold leading-snug" style={{ color: 'var(--text-main)' }}>
+        <h3 className="text-sm sm:text-base md:text-lg font-bold leading-snug break-words" style={{ color: 'var(--text-main)' }}>
           {currentQ.question}
         </h3>
       </div>
 
       {/* Options List */}
-      <div className="space-y-3">
+      <div className="space-y-2.5 sm:space-y-3">
         {currentQ.options.map((opt, idx) => {
           let optionStyle = {
             backgroundColor: 'var(--bg-input)',
@@ -181,24 +181,24 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
               key={idx}
               disabled={isAnswered}
               onClick={() => handleSelectOption(idx)}
-              className="w-full text-left p-4 rounded-2xl border transition-all flex items-center justify-between text-xs sm:text-sm font-medium"
+              className="w-full text-left p-3 sm:p-4 rounded-xl sm:rounded-2xl border transition-all flex items-center justify-between text-xs sm:text-sm font-medium active:scale-[0.99]"
               style={optionStyle}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3 flex-1 pr-2">
                 <span 
-                  className="w-6 h-6 rounded-lg flex items-center justify-center font-mono text-xs font-bold shrink-0 border"
+                  className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg flex items-center justify-center font-mono text-[10px] sm:text-xs font-bold shrink-0 border"
                   style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', color: 'var(--text-muted)' }}
                 >
                   {String.fromCharCode(65 + idx)}
                 </span>
-                <span>{opt}</span>
+                <span className="break-words leading-snug">{opt}</span>
               </div>
 
               {isAnswered && idx === currentQ.correctIndex && (
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500 shrink-0" />
               )}
               {isAnswered && idx === selectedOption && idx !== currentQ.correctIndex && (
-                <XCircle className="w-5 h-5 text-rose-500 shrink-0" />
+                <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-rose-500 shrink-0" />
               )}
             </button>
           );
@@ -208,14 +208,14 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
       {/* Explanation Block (Shown after answering) */}
       {isAnswered && (
         <div 
-          className="p-5 rounded-2xl border text-xs sm:text-sm space-y-2 animate-fadeIn"
+          className="p-4 sm:p-5 rounded-2xl border text-xs sm:text-sm space-y-1.5 sm:space-y-2 animate-fadeIn"
           style={{ backgroundColor: 'var(--primary-light)', borderColor: 'var(--border-hover)', color: 'var(--text-main)' }}
         >
-          <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-xs" style={{ color: 'var(--text-accent)' }}>
-            <Sparkles className="w-4 h-4" />
+          <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] sm:text-xs" style={{ color: 'var(--text-accent)' }}>
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400" />
             <span>Explanation & Concept Tip</span>
           </div>
-          <p className="leading-relaxed" style={{ color: 'var(--text-main)' }}>
+          <p className="leading-relaxed break-words" style={{ color: 'var(--text-main)' }}>
             {currentQ.explanation}
           </p>
         </div>
@@ -226,7 +226,7 @@ export default function QuizRunner({ quizList, topicTitle, onQuizComplete }) {
         <div className="pt-2 flex justify-end">
           <button
             onClick={handleNext}
-            className="px-6 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-md text-white"
+            className="w-full sm:w-auto px-6 py-3 rounded-xl font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-md text-white active:scale-95"
             style={{ backgroundColor: 'var(--primary-500)' }}
           >
             <span>{currentIndex === quizList.length - 1 ? 'Finish Quiz' : 'Next Question'}</span>

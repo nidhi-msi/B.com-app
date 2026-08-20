@@ -50,68 +50,68 @@ export default function ProgressTracker({ userProgress, onSelectSemSubject, setA
     : 0;
 
   return (
-    <div className="space-y-8 animate-fadeIn">
+    <div className="space-y-6 sm:space-y-8 animate-fadeIn">
       
       {/* Header Banner */}
       <div 
-        className="relative overflow-hidden p-6 sm:p-8 rounded-3xl border shadow-xl transition-colors duration-300"
+        className="relative overflow-hidden p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl border shadow-lg transition-colors duration-300"
         style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
       >
         <div className="absolute -right-8 -bottom-8 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-20" style={{ backgroundColor: 'var(--primary-500)' }} />
 
-        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div className="space-y-2">
+        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6">
+          <div className="space-y-1.5 sm:space-y-2">
             <div 
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold border"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold border"
               style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)', borderColor: 'var(--border-color)' }}
             >
               <Trophy className="w-3.5 h-3.5 text-amber-400" />
               <span>Student Performance Analytics</span>
             </div>
-            <h1 className="text-2xl sm:text-4xl font-extrabold" style={{ color: 'var(--text-main)' }}>
+            <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold" style={{ color: 'var(--text-main)' }}>
               My Study <span className="gradient-text">Progress Tracker</span>
             </h1>
-            <p className="text-xs sm:text-sm max-w-xl" style={{ color: 'var(--text-muted)' }}>
+            <p className="text-xs sm:text-sm max-w-xl leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               Real-time tracking of completed chapters, quiz scores, and CBCS syllabus milestone completion.
             </p>
           </div>
 
           <div 
-            className="flex items-center gap-4 p-4 rounded-2xl border"
+            className="w-full md:w-auto flex items-center justify-around sm:justify-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-2xl border"
             style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-color)' }}
           >
             <div className="text-center px-2">
               <p className="text-2xl sm:text-3xl font-extrabold font-serif gradient-text">{degreeProgressPercent}%</p>
-              <p className="text-[10px] uppercase font-bold tracking-wider" style={{ color: 'var(--text-muted)' }}>Degree Progress</p>
+              <p className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider" style={{ color: 'var(--text-muted)' }}>Degree Progress</p>
             </div>
             <div className="w-[1px] h-10 bg-slate-700/30" />
             <div className="text-center px-2">
               <p className="text-2xl sm:text-3xl font-extrabold font-serif text-emerald-400">{userProgress.quizCompletedCount || 0}</p>
-              <p className="text-[10px] uppercase font-bold tracking-wider" style={{ color: 'var(--text-muted)' }}>Quizzes Mastered</p>
+              <p className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider" style={{ color: 'var(--text-muted)' }}>Quizzes Done</p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Metric Cards Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         
         {/* Card 1: Completed Topics */}
         <div 
-          className="p-5 rounded-2xl border transition-all"
+          className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border transition-all"
           style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
         >
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Topics Completed</span>
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)' }}>
-              <BookOpen className="w-4 h-4" />
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider truncate" style={{ color: 'var(--text-muted)' }}>Topics Done</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)' }}>
+              <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold font-serif" style={{ color: 'var(--text-main)' }}>{completedTopicsCount}</span>
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>/ {totalTopicsCount} total</span>
+          <div className="flex items-baseline gap-1.5 flex-wrap">
+            <span className="text-xl sm:text-2xl font-bold font-serif" style={{ color: 'var(--text-main)' }}>{completedTopicsCount}</span>
+            <span className="text-[11px] sm:text-xs" style={{ color: 'var(--text-muted)' }}>/ {totalTopicsCount} total</span>
           </div>
-          <div className="w-full h-1.5 rounded-full bg-slate-800/40 mt-3 overflow-hidden">
+          <div className="w-full h-1.5 rounded-full bg-slate-800/40 mt-2.5 overflow-hidden">
             <div 
               className="h-full rounded-full transition-all duration-500" 
               style={{ width: `${degreeProgressPercent}%`, backgroundColor: 'var(--primary-500)' }} 
@@ -121,64 +121,64 @@ export default function ProgressTracker({ userProgress, onSelectSemSubject, setA
 
         {/* Card 2: Quiz Accuracy */}
         <div 
-          className="p-5 rounded-2xl border transition-all"
+          className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border transition-all"
           style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
         >
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Quiz Accuracy</span>
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 text-emerald-400">
-              <TrendingUp className="w-4 h-4" />
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider truncate" style={{ color: 'var(--text-muted)' }}>Accuracy</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center bg-emerald-500/10 text-emerald-400 shrink-0">
+              <TrendingUp className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold font-serif text-emerald-400">{accuracyPercent}%</span>
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>avg score</span>
+          <div className="flex items-baseline gap-1.5 flex-wrap">
+            <span className="text-xl sm:text-2xl font-bold font-serif text-emerald-400">{accuracyPercent}%</span>
+            <span className="text-[11px] sm:text-xs" style={{ color: 'var(--text-muted)' }}>avg score</span>
           </div>
-          <p className="text-[11px] mt-3" style={{ color: 'var(--text-muted)' }}>
-            {totalScorePoints} of {totalMaxScorePoints} points scored
+          <p className="text-[10px] sm:text-[11px] mt-2 truncate" style={{ color: 'var(--text-muted)' }}>
+            {totalScorePoints}/{totalMaxScorePoints} points
           </p>
         </div>
 
         {/* Card 3: Subjects Covered */}
         <div 
-          className="p-5 rounded-2xl border transition-all"
+          className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border transition-all"
           style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
         >
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Subjects Studied</span>
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-amber-500/10 text-amber-400">
-              <GraduationCap className="w-4 h-4" />
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider truncate" style={{ color: 'var(--text-muted)' }}>Studied</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center bg-amber-500/10 text-amber-400 shrink-0">
+              <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold font-serif" style={{ color: 'var(--text-main)' }}>
+          <div className="flex items-baseline gap-1.5 flex-wrap">
+            <span className="text-xl sm:text-2xl font-bold font-serif" style={{ color: 'var(--text-main)' }}>
               {userProgress.completedSubjects?.length || 0}
             </span>
-            <span className="text-xs" style={{ color: 'var(--text-muted)' }}>courses</span>
+            <span className="text-[11px] sm:text-xs" style={{ color: 'var(--text-muted)' }}>courses</span>
           </div>
-          <p className="text-[11px] mt-3" style={{ color: 'var(--text-muted)' }}>
-            Across 6 CBCS Semesters
+          <p className="text-[10px] sm:text-[11px] mt-2 truncate" style={{ color: 'var(--text-muted)' }}>
+            6 Semesters
           </p>
         </div>
 
         {/* Card 4: Exam Readiness */}
         <div 
-          className="p-5 rounded-2xl border transition-all"
+          className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border transition-all"
           style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
         >
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>Exam Readiness</span>
-            <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-purple-500/10 text-purple-400">
-              <Sparkles className="w-4 h-4" />
+          <div className="flex items-center justify-between mb-2 sm:mb-3">
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider truncate" style={{ color: 'var(--text-muted)' }}>Readiness</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center bg-purple-500/10 text-purple-400 shrink-0">
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
           </div>
-          <div className="flex items-baseline gap-2">
-            <span className="text-2xl font-bold font-serif" style={{ color: 'var(--text-accent)' }}>
+          <div className="flex items-baseline gap-1.5 flex-wrap">
+            <span className="text-xl sm:text-2xl font-bold font-serif" style={{ color: 'var(--text-accent)' }}>
               {degreeProgressPercent > 50 ? 'Exam Ready' : 'In Progress'}
             </span>
           </div>
-          <p className="text-[11px] mt-3" style={{ color: 'var(--text-muted)' }}>
-            Practice PYQs & Blueprint
+          <p className="text-[10px] sm:text-[11px] mt-2 truncate" style={{ color: 'var(--text-muted)' }}>
+            4-Block Tested
           </p>
         </div>
 
@@ -186,14 +186,14 @@ export default function ProgressTracker({ userProgress, onSelectSemSubject, setA
 
       {/* Semester by Semester Breakdown */}
       <div>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
           <div>
-            <h2 className="text-lg font-bold" style={{ color: 'var(--text-main)' }}>Semester Breakdown & Subject Mastery</h2>
+            <h2 className="text-lg sm:text-xl font-bold" style={{ color: 'var(--text-main)' }}>Semester Breakdown & Subject Mastery</h2>
             <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Select any subject to jump straight into syllabus units</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5">
           {SYLLABUS_DATA.map((sem) => {
             // Count total topics in this semester
             let semTopics = 0;
@@ -214,13 +214,13 @@ export default function ProgressTracker({ userProgress, onSelectSemSubject, setA
             return (
               <div 
                 key={sem.semId}
-                className="p-5 rounded-2xl border flex flex-col justify-between space-y-4 transition-all hover:scale-[1.01]"
+                className="p-4 sm:p-5 rounded-2xl border flex flex-col justify-between space-y-3.5 sm:space-y-4 transition-all hover:scale-[1.01]"
                 style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)' }}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span 
-                      className="text-xs font-bold px-2 py-0.5 rounded border font-mono"
+                      className="text-[10px] sm:text-xs font-bold px-2 py-0.5 rounded border font-mono"
                       style={{ backgroundColor: 'var(--primary-light)', color: 'var(--text-accent)', borderColor: 'var(--border-color)' }}
                     >
                       Semester {sem.semId}
@@ -230,12 +230,12 @@ export default function ProgressTracker({ userProgress, onSelectSemSubject, setA
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold mb-3" style={{ color: 'var(--text-main)' }}>
+                  <h3 className="text-base sm:text-lg font-bold mb-2.5" style={{ color: 'var(--text-main)' }}>
                     {sem.semTitle}
                   </h3>
 
                   {/* Progress Bar */}
-                  <div className="w-full h-1.5 rounded-full bg-slate-800/40 mb-4 overflow-hidden">
+                  <div className="w-full h-1.5 rounded-full bg-slate-800/40 mb-3 sm:mb-4 overflow-hidden">
                     <div 
                       className="h-full rounded-full transition-all duration-500" 
                       style={{ width: `${semPercent}%`, backgroundColor: 'var(--primary-500)' }} 
@@ -253,14 +253,14 @@ export default function ProgressTracker({ userProgress, onSelectSemSubject, setA
                             onSelectSemSubject(sem.semId, sub.code);
                             setActiveTab('syllabus');
                           }}
-                          className="p-2.5 rounded-xl border flex items-center justify-between cursor-pointer transition-all hover:scale-[1.01]"
+                          className="p-2 sm:p-2.5 rounded-xl border flex items-center justify-between cursor-pointer transition-all active:scale-[0.99]"
                           style={{ backgroundColor: 'var(--bg-input)', borderColor: 'var(--border-color)' }}
                         >
-                          <div className="flex items-center gap-2">
-                            <span className="font-mono text-xs font-bold" style={{ color: 'var(--text-accent)' }}>
+                          <div className="flex items-center gap-2 truncate pr-2">
+                            <span className="font-mono text-xs font-bold shrink-0" style={{ color: 'var(--text-accent)' }}>
                               {sub.code}
                             </span>
-                            <span className="text-xs font-medium line-clamp-1" style={{ color: 'var(--text-main)' }}>
+                            <span className="text-xs font-medium truncate" style={{ color: 'var(--text-main)' }}>
                               {sub.title}
                             </span>
                           </div>
@@ -280,7 +280,7 @@ export default function ProgressTracker({ userProgress, onSelectSemSubject, setA
                     onSelectSemSubject(sem.semId, sem.subjects[0]?.code);
                     setActiveTab('syllabus');
                   }}
-                  className="w-full py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1 transition-all border"
+                  className="w-full py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1 transition-all border active:scale-95"
                   style={{ 
                     backgroundColor: 'var(--primary-light)', 
                     borderColor: 'var(--border-color)', 

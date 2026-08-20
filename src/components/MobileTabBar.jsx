@@ -11,14 +11,16 @@ export default function MobileTabBar({ activeTab, setActiveTab }) {
   ];
 
   return (
-    <div 
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t backdrop-blur-xl transition-colors duration-300 shadow-2xl px-2 py-1.5"
+    <nav 
+      aria-label="Mobile Navigation"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 border-t backdrop-blur-xl transition-colors duration-300 shadow-2xl px-1.5 pt-1.5"
       style={{
         backgroundColor: 'var(--bg-nav)',
         borderColor: 'var(--border-color)',
+        paddingBottom: 'calc(0.4rem + env(safe-area-inset-bottom, 0px))',
       }}
     >
-      <div className="flex items-center justify-around">
+      <div className="flex items-center justify-around max-w-lg mx-auto">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeTab === tab.id;
@@ -26,7 +28,7 @@ export default function MobileTabBar({ activeTab, setActiveTab }) {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className="flex flex-col items-center justify-center py-1 px-2 rounded-xl transition-all duration-200 min-w-[56px] relative"
+              className="flex flex-col items-center justify-center py-1.5 px-2 rounded-xl transition-all duration-200 min-w-[54px] relative active:scale-95"
               style={{
                 color: isActive ? 'var(--text-accent)' : 'var(--text-muted)',
                 backgroundColor: isActive ? 'var(--primary-light)' : 'transparent',
@@ -34,18 +36,18 @@ export default function MobileTabBar({ activeTab, setActiveTab }) {
             >
               {isActive && (
                 <span 
-                  className="absolute -top-1 w-6 h-0.5 rounded-full" 
+                  className="absolute -top-1 w-5 h-0.5 rounded-full shadow-sm" 
                   style={{ backgroundColor: 'var(--primary-500)' }} 
                 />
               )}
-              <Icon className={`w-5 h-5 ${isActive ? 'scale-110' : 'scale-100'} transition-transform`} />
-              <span className={`text-[10px] mt-0.5 font-semibold tracking-tight ${isActive ? 'font-bold' : ''}`}>
+              <Icon className={`w-5 h-5 ${isActive ? 'scale-110' : 'scale-100'} transition-transform duration-200`} />
+              <span className={`text-[10px] mt-0.5 tracking-tight ${isActive ? 'font-bold' : 'font-medium'}`}>
                 {tab.label}
               </span>
             </button>
           );
         })}
       </div>
-    </div>
+    </nav>
   );
 }
