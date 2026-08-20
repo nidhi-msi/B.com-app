@@ -86,10 +86,10 @@ export default function Navbar({
           </div>
 
           {/* Nav Links */}
-          <div className="hidden lg:flex items-center gap-1 sm:gap-1.5">
+          <div className="hidden md:flex items-center gap-1 sm:gap-1.5">
             <button
               onClick={() => setActiveTab('dashboard')}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all relative"
               style={{
                 backgroundColor: activeTab === 'dashboard' ? 'var(--primary-light)' : 'transparent',
                 color: activeTab === 'dashboard' ? 'var(--text-accent)' : 'var(--text-muted)',
@@ -102,7 +102,7 @@ export default function Navbar({
 
             <button
               onClick={() => setActiveTab('syllabus')}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all relative"
               style={{
                 backgroundColor: activeTab === 'syllabus' ? 'var(--primary-light)' : 'transparent',
                 color: activeTab === 'syllabus' ? 'var(--text-accent)' : 'var(--text-muted)',
@@ -115,7 +115,7 @@ export default function Navbar({
 
             <button
               onClick={() => setActiveTab('pyq')}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all relative"
               style={{
                 backgroundColor: activeTab === 'pyq' ? 'var(--primary-light)' : 'transparent',
                 color: activeTab === 'pyq' ? 'var(--text-accent)' : 'var(--text-muted)',
@@ -128,15 +128,36 @@ export default function Navbar({
 
             <button
               onClick={() => setActiveTab('answer-guide')}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all relative"
               style={{
                 backgroundColor: activeTab === 'answer-guide' ? 'var(--primary-light)' : 'transparent',
                 color: activeTab === 'answer-guide' ? 'var(--text-accent)' : 'var(--text-muted)',
                 border: activeTab === 'answer-guide' ? '1px solid var(--border-hover)' : '1px solid transparent'
               }}
             >
-              <Sparkles className="w-3.5 h-3.5 animate-pulse" style={{ color: 'var(--text-accent)' }} />
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Exam Master</span>
+            </button>
+
+            <button
+              onClick={() => setActiveTab('progress')}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all relative"
+              style={{
+                backgroundColor: activeTab === 'progress' ? 'var(--primary-light)' : 'transparent',
+                color: activeTab === 'progress' ? 'var(--text-accent)' : 'var(--text-muted)',
+                border: activeTab === 'progress' ? '1px solid var(--border-hover)' : '1px solid transparent'
+              }}
+            >
+              <Award className="w-3.5 h-3.5" />
+              <span>Progress</span>
+              {userProgress?.quizCompletedCount > 0 && (
+                <span 
+                  className="ml-0.5 text-[9px] font-bold px-1.5 py-0.2 rounded-full"
+                  style={{ backgroundColor: 'var(--primary-500)', color: '#ffffff' }}
+                >
+                  {userProgress.quizCompletedCount}
+                </span>
+              )}
             </button>
           </div>
 
