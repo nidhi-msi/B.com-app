@@ -5,6 +5,26 @@ All notable changes to the **IGNOU B.Com Learning App** will be documented in th
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-08-20
+
+### Added
+- **Full 6-Semester CBCS Syllabus Coverage**: Complete dataset expansion in `src/data/ignouSyllabus.js` covering 14 core and elective courses:
+  - **Semester 1**: `BCOC-131` (Financial Accounting), `BCOC-132` (Business Organisation & Management)
+  - **Semester 2**: `BCOC-133` (Business Law), `BCOC-134` (Business Mathematics & Statistics)
+  - **Semester 3**: `BCOC-135` (Company Law), `BCOC-136` (Income Tax Law & Practice), `BCOS-183` (Computer Applications in Business)
+  - **Semester 4**: `BCOC-137` (Corporate Accounting), `BCOC-138` (Cost Accounting), `BCOS-184` (E-Commerce)
+  - **Semester 5**: `BCOE-141` (Principles of Marketing), `BCOE-143` (Fundamentals of Financial Management), `BCOS-185` (Entrepreneurship)
+  - **Semester 6**: `BCOE-142` (Management Accounting), `BCOE-144` (Office Management & Secretarial Practice), `BCOS-186` (Personal Selling & Salesmanship)
+- **Comprehensive Exam-Focused Study Content**:
+  - Detailed concepts and structured summaries across all units.
+  - Memory mnemonics (`B-M-G-D`, `D-I-P`, `O-I-C-C-F-L`, `N-R-O-L-C-A`, `C-D-E-T`, `P-W-P-S`, `A-I-D-A`, `L-S-A-P`, `O-I-F`, etc.).
+  - Practical corporate scenarios and real-world accounting examples.
+  - Core accounting standards (AS-1, AS-2, AS-3, AS-10), Income Tax sections (Sec 6, Sec 10(13A), Sec 80C-80U), and mathematical formulas.
+- **Interactive Multi-Choice Quizzes (MCQs)**: High-quality topic quizzes with 4 options, instant evaluation, and pedagogical explanations.
+- **4-Block Solved Previous Year Exam Questions (PYQs)**: Authentic term-end past paper questions categorized by 5, 10, and 20 marks with step-by-step model solutions.
+
+---
+
 ## [1.2.0] - 2026-08-20
 
 ### Added

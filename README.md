@@ -20,8 +20,14 @@
   - Instant Light/Dark mode toggle button with automatic `localStorage` persistence.
   - High-contrast typography tuned for optimal readability across all device screens.
 
-- 📚 **Semester-Wise IGNOU Syllabus (Sem 1 to Sem 6)**
-  - Pre-loaded with authentic course codes: `BCOC-131`, `BCOC-132`, `BCOC-133`, `BCOC-134`, `BCOC-136`, `BCOC-137`, `BCOC-138`, `BCOE-141`, `BCOE-142`.
+- 📚 **Comprehensive Semester-Wise IGNOU CBCS Syllabus (Sem 1 to Sem 6)**
+  - Pre-loaded with all authentic core and elective course codes:
+    - **Sem 1**: `BCOC-131` (Financial Accounting), `BCOC-132` (Business Organisation & Management)
+    - **Sem 2**: `BCOC-133` (Business Law), `BCOC-134` (Business Mathematics & Statistics)
+    - **Sem 3**: `BCOC-135` (Company Law), `BCOC-136` (Income Tax Law & Practice), `BCOS-183` (Computer Applications in Business)
+    - **Sem 4**: `BCOC-137` (Corporate Accounting), `BCOC-138` (Cost Accounting), `BCOS-184` (E-Commerce)
+    - **Sem 5**: `BCOE-141` (Principles of Marketing), `BCOE-143` (Fundamentals of Financial Management), `BCOS-185` (Entrepreneurship)
+    - **Sem 6**: `BCOE-142` (Management Accounting), `BCOE-144` (Office Management & Secretarial Practice), `BCOS-186` (Personal Selling & Salesmanship)
 
 - 💡 **Bite-Sized Chapter Notes & Memory Mnemonics**
   - Easy-to-understand topic breakdowns with acronyms (e.g. `B-M-G-D`, `C-O-P-D`), practical business examples, and key formula blocks.
